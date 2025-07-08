@@ -106,30 +106,69 @@ namespace Week2TextRPG_Younga
             Console.WriteLine(
                 "인벤토리\n" +
                 "보유 중인 아이템을 관리할 수 있습니다.\n\n" +
-                "[아이템 목록]\n"
+                "[아이템 목록]"
                 );
-
+            player.DisplayInventory();
 
             Console.WriteLine(
                 "1. 장착 관리\n" +
                 "0. 나가기\n"
                 );
-            Console.Write("\n원하시는 행동을 입력해주세요.\n>>");
+            Console.Write("원하시는 행동을 입력해주세요.\n>>");
             input = GetIntegerRange(0, 2);
             switch (input) { 
                 case 1: LoadEquipmentScene(player); break; 
-                case 2: LoadMainScene(player); break;
+                case 0: LoadMainScene(player); break;
             }
         }
         static void LoadEquipmentScene(Player player)
         {
+            int input;
+
             Console.Clear();
             Console.WriteLine("LoadEquipmentScene");
+            Console.WriteLine(
+                "인벤토리 - 장착 관리\n" +
+                "보유 중인 아이템을 관리할 수 있습니다.\n\n" +
+                "[아이템 목록]"
+                );
+            ShowItemList(player.Inventory);
+
+
+            Console.WriteLine(
+                "0. 나가기\n"
+                );
+            Console.Write("원하시는 행동을 입력해주세요.\n>>");
+            input = GetIntegerRange(0, player.Inventory.Count() + 1);
+
+            if (input == 0) 
+            { 
+                LoadInventoryScene(player); 
+            }
+            else
+            {
+                if (player.Inventory[input - 1].IsEquipped)
+                    player.Inventory[input - 1].Unequip();
+                else
+                    player.Inventory[input - 1].Equip();
+            }
+
+            LoadEquipmentScene(player);
         }
         static void LoadStoreScene(Player player)
         {
             Console.Clear();
             Console.WriteLine("LoadStoreScene");
+        }
+
+        //1, 2, 3번 넘버링 해야해서 ... Item에 넣기도 그렇고 Store에 넣기도 그래서 그냥 개별 메소드로 뺐음.... 고민좀 해봐야할듯
+        static void ShowItemList(List<Item> items)
+        {
+            for (int i = 0; i < items.Count(); i++)
+            {
+                Console.Write(" - " + (i + 1) + " ");   //숫자 1부터 시작.
+                items[i].ToString();
+            }
         }
     }
 }
