@@ -10,23 +10,44 @@ namespace Week2TextRPG_Younga
 {
     internal class Store
     {
-        private List<Item> itemsForSale;
+        //private List<Item> itemsForSale;
 
         public List<Item> ItemsForSale { get; set; }
 
         public Store()
         {
-            GetAllItemJsonFile();
+            ItemsForSale = GetAllItemJsonFile();
         }
-        public void DisplayItems()
+        public void DisplayItems(bool isNumbered)
         {
+            int index = 1;
+            string prefix = " - ";
+            foreach (Item item in ItemsForSale)
+            {
+                prefix = isNumbered ? $" - {index++} " : " - ";
+                Console.Write(prefix);
+                item.ToString();
+            }
 
+            Console.WriteLine();
         }
-        public bool SellToPlayer(Player player, Item item)
+        public void SellToPlayer(Player player, Item item)
         {
-            bool isSellable = false;
-
-            return isSellable;
+            bool isOwned = player.Inventory.All(x => x.Id == item.Id);
+            bool hasEnoughGold = player.Gold >= item.Price;
+            if (isOwned)
+            {
+                Console.WriteLine("이미 구매한 아이템 입니다.");
+                return;
+            }
+            else if (!hasEnoughGold)
+            {
+                Console.WriteLine("Gold가 부족합니다.");
+            }
+            else
+            {
+                player.PurchaseItem(item);
+            }
         }
 
 

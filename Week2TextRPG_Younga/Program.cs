@@ -7,7 +7,7 @@ namespace Week2TextRPG_Younga
 {
     internal class Program
     {
-        static public Store store = new Store();
+        public static Store store = new Store();
 
         static void Main(string[] args)
         {
@@ -19,6 +19,7 @@ namespace Week2TextRPG_Younga
             input = Console.ReadLine();
 
             Player player = new Player(input);
+            player.Inventory.Add(store.ItemsForSale[1]);
 
             LoadMainScene(player);
         }
@@ -108,7 +109,7 @@ namespace Week2TextRPG_Younga
                 "보유 중인 아이템을 관리할 수 있습니다.\n\n" +
                 "[아이템 목록]"
                 );
-            player.DisplayInventory();
+            player.DisplayInventory(false);
 
             Console.WriteLine(
                 "1. 장착 관리\n" +
@@ -132,7 +133,8 @@ namespace Week2TextRPG_Younga
                 "보유 중인 아이템을 관리할 수 있습니다.\n\n" +
                 "[아이템 목록]"
                 );
-            ShowItemList(player.Inventory);
+            player.DisplayInventory(true);
+            //ShowItemList(player.Inventory, true);
 
 
             Console.WriteLine(
@@ -151,23 +153,91 @@ namespace Week2TextRPG_Younga
                     player.Inventory[input - 1].Unequip();
                 else
                     player.Inventory[input - 1].Equip();
-            }
 
-            LoadEquipmentScene(player);
+                LoadEquipmentScene(player);
+            }
         }
         static void LoadStoreScene(Player player)
         {
+            int input;
+
             Console.Clear();
             Console.WriteLine("LoadStoreScene");
+            Console.WriteLine(
+                "상점\n" +
+                "필요한 아이템을 얻을 수 있는 상점입니다.\n\n" +
+                "[보유 골드]\n" +
+                $"{player.Gold} G\n\n" +
+                "[아이템 목록]"
+                );
+            store.DisplayItems(false);
+
+
+            Console.WriteLine(
+                "1. 아이템 구매\n" +
+                "0. 나가기\n"
+                );
+            Console.Write("원하시는 행동을 입력해주세요.\n>>");
+            input = GetIntegerRange(0, 2);
+
+            switch (input)
+            {
+                case 1: LoadPurchaseScene(player); break;
+                case 0: LoadMainScene(player); break;
+            }
+        }
+        static void LoadPurchaseScene(Player player)
+        {
+            int input;
+
+            Console.Clear();
+            Console.WriteLine("LoadStoreScene");
+            Console.WriteLine(
+                "상점 - 아이템 구매\n" +
+                "필요한 아이템을 얻을 수 있는 상점입니다.\n\n" +
+                "[보유 골드]\n" +
+                $"{player.Gold} G\n\n" +
+                "[아이템 목록]"
+                );
+            store.DisplayItems(true);
+
+            Console.WriteLine(
+                "0. 나가기\n"
+                );
+            Console.Write("원하시는 행동을 입력해주세요.\n>>");
+            input = GetIntegerRange(0, store.ItemsForSale.Count() + 1);
+
+            if (input == 0)
+            {
+                LoadStoreScene(player);
+            }
+            else
+            {
+                store.SellToPlayer(player, store.ItemsForSale[input - 1]);
+            }
+//            LoadPurchaseScene(player);
         }
 
+
+
         //1, 2, 3번 넘버링 해야해서 ... Item에 넣기도 그렇고 Store에 넣기도 그래서 그냥 개별 메소드로 뺐음.... 고민좀 해봐야할듯
-        static void ShowItemList(List<Item> items)
+        static void ShowItemList(List<Item> items, bool isNumbered)
         {
-            for (int i = 0; i < items.Count(); i++)
+            if (isNumbered)
             {
-                Console.Write(" - " + (i + 1) + " ");   //숫자 1부터 시작.
-                items[i].ToString();
+                for (int i = 0; i < items.Count(); i++)
+                {
+                    Console.Write(" - " + (i + 1) + " ");   //숫자 1부터 시작.
+                    items[i].ToString();
+                }
+            }
+            else
+            {
+                for (int i = 0; i < items.Count(); i++)
+                {
+                    Console.Write(" - ");
+                    items[i].ToString();
+                }
             }
         }
     }

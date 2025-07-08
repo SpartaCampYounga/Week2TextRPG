@@ -8,7 +8,7 @@ namespace Week2TextRPG_Younga
 {
     internal class Item
     {
-        private static int nextId = 1;  //TIL
+        private static int nextId = 1;
         private int id;
         private bool isEquipped;
         private string name;

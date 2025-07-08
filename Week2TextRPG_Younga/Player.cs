@@ -16,7 +16,7 @@ namespace Week2TextRPG_Younga
         private int defence;
         private int health;
         private int gold;
-        private List<Item> inventory;   //for now, hardcoding
+        private List<Item> inventory = new List<Item>();   //for now, hardcoding
 
         public int Id => id;
         public int Level => level;
@@ -38,26 +38,23 @@ namespace Week2TextRPG_Younga
             defence = 5;
             health = 100;
             gold = 1500;
-            inventory = new List<Item>()
-            {
-                new Item("수련자갑옷", 1000, "수련에 도움을 주는 갑옷입니다.", new Dictionary<Ability, int> { { Ability.Defence, 5 } }, EquipSlot.Armor),
-                new Item("무기", 2000, "공격력", new Dictionary<Ability, int> { { Ability.Attack, 9 } }, EquipSlot.Armor),
-                new Item("악세서리", 3500, "체력", new Dictionary<Ability, int> { { Ability.Health, 9 } }, EquipSlot.Armor)
-            };
-            inventory[1].Equip();
         }
         public void DisplayPlayerStatus()
         {
             int totalAttackBonus = 0;
             int totalDefenseBonus = 0;
             int totalHealthBonus = 0;
-            foreach (Item item in inventory)
+
+            if (inventory.Count != 0)
             {
-                if (item.IsEquipped)
+                foreach (Item item in inventory)
                 {
-                    totalAttackBonus += item.Enhancement.TryGetValue(Ability.Attack, out int attackBonus) ? attackBonus : 0;
-                    totalDefenseBonus += item.Enhancement.TryGetValue(Ability.Defence, out int defenceBonus) ? defenceBonus : 0;
-                    totalHealthBonus += item.Enhancement.TryGetValue(Ability.Health, out int healthBonus) ? healthBonus : 0;
+                    if (item.IsEquipped)
+                    {
+                        totalAttackBonus += item.Enhancement.TryGetValue(Ability.Attack, out int attackBonus) ? attackBonus : 0;
+                        totalDefenseBonus += item.Enhancement.TryGetValue(Ability.Defence, out int defenceBonus) ? defenceBonus : 0;
+                        totalHealthBonus += item.Enhancement.TryGetValue(Ability.Health, out int healthBonus) ? healthBonus : 0;
+                    }
                 }
             }
 
@@ -80,22 +77,30 @@ namespace Week2TextRPG_Younga
             Console.WriteLine();
         }
 
-        public void DisplayInventory()
+        public void DisplayInventory(bool isNumbered)
         {
+            if (inventory.Count == 0)
+            {
+                Console.WriteLine("아무 것도 갖고 있지 않습니다.");
+                return;
+            }
+            int index = 1;
+            string prefix = " - ";
             foreach (Item item in inventory)
             {
-                Console.Write(" - ");
+                prefix = isNumbered ? $" - {index++} " : " - ";
+                Console.Write(prefix);
                 item.ToString();
             }
 
             Console.WriteLine();
         }
-        public void PurchaseItem(Item item)
+        public void PurchaseItem(Item item) //Store SellToPlayer()에서만 호출됨
         {
             //아이템 획득 및 골드 소모만!!
-            //가능성 여부는 Store에서 구현 예정 
+            //가능성 여부는 Store SellToPlayer()에서 체크
             inventory.Add(item);
-            gold -= item.Price; //if 처리 해야함. 0으로 떨어지지 않게.
+            gold -= item.Price;
         }
     }
 }
