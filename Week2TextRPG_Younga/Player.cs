@@ -16,7 +16,7 @@ namespace Week2TextRPG_Younga
         private int defence;
         private int health;
         private int gold;
-        private List<Item> inventory;
+        private List<Item> inventory;   //for now, hardcoding
 
         public int Id => id;
         public int Level => level;
@@ -40,7 +40,13 @@ namespace Week2TextRPG_Younga
         }
         public void DisplayPlayerStatus()
         {
-
+            Console.WriteLine(
+                $"Lv. {level.ToString("D2")}\n" +
+                $"{name} ( {job} )\n" +
+                $"공격력: {attack}\n" +
+                $"방어력: {defence}\n" +
+                $"체력: {health}\n" +
+                $"Gold {gold} G\n");
         }
         public void DisplayInventory()
         {
