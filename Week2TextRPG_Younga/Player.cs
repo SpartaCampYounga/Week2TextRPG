@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -90,7 +91,8 @@ namespace Week2TextRPG_Younga
             {
                 prefix = isNumbered ? $" - {index++} " : " - ";
                 Console.Write(prefix);
-                item.ToString();
+                Console.WriteLine(item);
+                //Replace();
             }
 
             Console.WriteLine();
@@ -101,6 +103,7 @@ namespace Week2TextRPG_Younga
             //가능성 여부는 Store SellToPlayer()에서 체크
             inventory.Add(item);
             gold -= item.Price;
+            Console.WriteLine($"{item.Name}을 구매했다! {gold}이 남았다.");
         }
     }
 }

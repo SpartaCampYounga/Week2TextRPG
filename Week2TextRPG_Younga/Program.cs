@@ -215,7 +215,9 @@ namespace Week2TextRPG_Younga
             {
                 store.SellToPlayer(player, store.ItemsForSale[input - 1]);
             }
-//            LoadPurchaseScene(player);
+            Console.WriteLine("계속 진행하려면 Enter를 입력하세요...");
+            Console.ReadLine();
+            LoadPurchaseScene(player);
         }
 
 

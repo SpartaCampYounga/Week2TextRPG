@@ -41,20 +41,19 @@ namespace Week2TextRPG_Younga
             this.equipSlot = equipSlot;
         }
 
-        public void ToString()
+        public override string ToString()
         {
-            if (isEquipped)
-            {
-                Console.Write("[E]");
-            }
-            Console.Write(name + "\t|");
+            string display = "";
 
+            display += isEquipped ? $"[E]{name}\t|" : $"{name}\t|";
             foreach (KeyValuePair<Ability, int> ability in enhancement)
             {
-                Console.Write(ability.Key + " +" + ability.Value + "\t|");
+                display += ability.Key + " +" + ability.Value + "\t|";
             }
-            Console.Write(description + "\t|");
-            Console.Write(price + " G\t|\n");
+            display += description + "\t|";
+            display += price + " G\t|\n";
+
+            return display;
         }
         public void Equip()
         {

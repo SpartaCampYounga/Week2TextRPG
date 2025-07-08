@@ -26,14 +26,14 @@ namespace Week2TextRPG_Younga
             {
                 prefix = isNumbered ? $" - {index++} " : " - ";
                 Console.Write(prefix);
-                item.ToString();
+                Console.WriteLine(item);
             }
 
             Console.WriteLine();
         }
         public void SellToPlayer(Player player, Item item)
         {
-            bool isOwned = player.Inventory.All(x => x.Id == item.Id);
+            bool isOwned = player.Inventory.Any(x => x.Id == item.Id); //TIL
             bool hasEnoughGold = player.Gold >= item.Price;
             if (isOwned)
             {
