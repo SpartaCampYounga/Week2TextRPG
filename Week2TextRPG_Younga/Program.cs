@@ -45,7 +45,7 @@ namespace Week2TextRPG_Younga
 
                 if (!isSuccessful)
                 {
-                    Console.Write($"{min}~{max - 1} 범위의 숫자(정수)만 입력해주세요.\n>>");
+                    Console.Write($"{min}~{max - 1} 범위의 숫자만 입력해주세요.\n>>");
                 }
             } while (!isSuccessful);
             return integer;
@@ -218,29 +218,6 @@ namespace Week2TextRPG_Younga
             Console.WriteLine("계속 진행하려면 Enter를 입력하세요...");
             Console.ReadLine();
             LoadPurchaseScene(player);
-        }
-
-
-
-        //1, 2, 3번 넘버링 해야해서 ... Item에 넣기도 그렇고 Store에 넣기도 그래서 그냥 개별 메소드로 뺐음.... 고민좀 해봐야할듯
-        static void ShowItemList(List<Item> items, bool isNumbered)
-        {
-            if (isNumbered)
-            {
-                for (int i = 0; i < items.Count(); i++)
-                {
-                    Console.Write(" - " + (i + 1) + " ");   //숫자 1부터 시작.
-                    items[i].ToString();
-                }
-            }
-            else
-            {
-                for (int i = 0; i < items.Count(); i++)
-                {
-                    Console.Write(" - ");
-                    items[i].ToString();
-                }
-            }
         }
     }
 }
