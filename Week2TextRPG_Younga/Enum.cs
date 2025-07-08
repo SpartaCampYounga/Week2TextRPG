@@ -6,6 +6,15 @@ using System.Threading.Tasks;
 
 namespace Week2TextRPG_Younga
 {
+    enum SceneType
+    {
+        Main,
+        Status,
+        Inventory,
+        Equipment,
+        Store,
+        Purchase
+    }
     enum Ability
     {
         Attack,
