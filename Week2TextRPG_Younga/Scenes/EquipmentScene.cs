@@ -42,10 +42,8 @@ namespace Week2TextRPG_Younga.Scenes
             }
             else
             {
-                if (_player.Inventory[input - 1].IsEquipped)
-                    _player.Inventory[input - 1].Unequip();
-                else
-                    _player.Inventory[input - 1].Equip();
+                _player.Equip(_player.Inventory[input - 1]);
+                WaitResponse();
 
                 SceneManager.Instance.SetScene(SceneType.Equipment);
             }

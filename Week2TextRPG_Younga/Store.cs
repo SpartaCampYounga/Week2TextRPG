@@ -10,8 +10,6 @@ namespace Week2TextRPG_Younga
 {
     internal class Store
     {
-        //private List<Item> itemsForSale;
-
         public List<Item> ItemsForSale { get; set; }
 
         public Store()

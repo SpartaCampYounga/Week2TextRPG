@@ -10,7 +10,7 @@ namespace Week2TextRPG_Younga
     {
         private static int nextId = 1;
         private int id;
-        private bool isEquipped;
+        //private bool isEquipped;
         private string name;
         private int price;
         private string description;
@@ -22,7 +22,7 @@ namespace Week2TextRPG_Younga
         private EquipSlot equipSlot;
 
         public int Id => id;
-        public bool IsEquipped => isEquipped;
+        // public bool IsEquipped => isEquipped;
         public string Name => name;
         public int Price => price;
         public string Description => description;
@@ -32,7 +32,7 @@ namespace Week2TextRPG_Younga
         public Item(string name, int price, string description, Dictionary<Ability, int> enhancement, EquipSlot equipSlot)
         {
             id = nextId++;
-            this.isEquipped = false;
+            //this.isEquipped = false;
             this.name = name;
             this.price = price;
             this.description = description;
@@ -44,7 +44,7 @@ namespace Week2TextRPG_Younga
         {
             string display = "";
 
-            display += isEquipped ? $"[E]{name}\t|" : $"{name}\t|";
+            display += $"{name}\t|";
             foreach (KeyValuePair<Ability, int> ability in enhancement)
             {
                 display += ability.Key + " +" + ability.Value + "\t|";
@@ -52,15 +52,6 @@ namespace Week2TextRPG_Younga
             display += description + "\t|";
 
             return display;
-        }
-
-        public void Equip()
-        {
-            isEquipped = true;
-        }
-        public void Unequip()
-        {
-            isEquipped = false;
         }
     }
 }

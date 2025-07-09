@@ -45,17 +45,16 @@ namespace Week2TextRPG_Younga
         {
             int totalAttackBonus = 0;
             int totalDefenseBonus = 0;
-            //int totalHealthBonus = 0;
 
             if (inventory.Count != 0)
             {
                 foreach (Item item in inventory)
                 {
-                    if (item.IsEquipped)
+                    bool isEquipped = equipment.ContainsKey(item.EquipSlot);
+                    if (isEquipped)
                     {
                         totalAttackBonus += item.Enhancement.TryGetValue(Ability.Attack, out int attackBonus) ? attackBonus : 0;
                         totalDefenseBonus += item.Enhancement.TryGetValue(Ability.Defence, out int defenceBonus) ? defenceBonus : 0;
-                        //totalHealthBonus += item.Enhancement.TryGetValue(Ability.Health, out int healthBonus) ? healthBonus : 0;
                     }
                 }
             }
@@ -87,15 +86,14 @@ namespace Week2TextRPG_Younga
                 return;
             }
             int index = 1;
-            string prefix = " - ";
-            foreach (Item item in inventory)
+            for (int i = 0; i < inventory.Count(); i++)
             {
-                prefix = isNumbered ? $" - {index++} " : " - ";
-                Console.Write(prefix);
-                Console.WriteLine(item);
-                //Replace();
+                string display = " - ";
+                display += isNumbered ? $"{i + 1} " : ""; //numbering 요청 받았다면 숫자 매김
+                display += equipment.ContainsValue(inventory[i]) ? "[E]" : ""; //장착 중이라면 [E]출력
+                display += inventory[i].ToString();
+                Console.WriteLine(display);
             }
-
             Console.WriteLine();
         }
         public void PurchaseItem(Item item) //Store SellToPlayer()에서만 호출됨
@@ -123,18 +121,24 @@ namespace Week2TextRPG_Younga
 
         public void Equip(Item item)
         {
-            Item currentItem; ////스위치만 하는 거임
-            if(equipment.ContainsKey(item.EquipSlot))
+            if (equipment.ContainsKey(item.EquipSlot))      //이미 장착한게 있다!
             {
-                currentItem = equipment[item.EquipSlot];
-                Console.WriteLine("이미 장착
-
+                if (equipment[item.EquipSlot].Id == item.Id) //이미 같은 것을 장착하고 있다.
+                {
+                    equipment.Remove(item.EquipSlot);
+                    Console.WriteLine($"{item.Name}을 장착 해제하였습니다..");
+                }
+                else
+                {
+                    Item previouseItem = equipment[item.EquipSlot];
+                    equipment[item.EquipSlot] = item;
+                    Console.WriteLine($"{previouseItem.Name}을 장착 해제하고 {item.Name}을 장착했습니다.");
+                }
             }
-            else
+            else       //장착 한게 없다!
             {
                 equipment.Add(item.EquipSlot, item);
-
-
+                Console.WriteLine($"{item.Name}을 장착했습니다.");
             }
         }
     }
