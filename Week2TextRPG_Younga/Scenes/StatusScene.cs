@@ -27,7 +27,10 @@ namespace Week2TextRPG_Younga.Scenes
 
             _player.DisplayPlayerStatus();
 
-            Console.WriteLine("0. 나가기\n");
+            Console.WriteLine(
+                "\n" + 
+                "0. 나가기\n"
+                );
             Console.Write("원하시는 행동을 입력해주세요.\n>>");
             input = GetIntegerRange(0, 1);
             SceneManager.Instance.SetScene(SceneType.Title);

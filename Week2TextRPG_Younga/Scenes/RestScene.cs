@@ -22,11 +22,11 @@ namespace Week2TextRPG_Younga.Scenes
             Console.WriteLine("LoadRestScene");
             Console.WriteLine(
                 "휴식하기\n" +
-                $"500 G을 내면 체력을 회복할 수 있습니다. (현재 체력: {_player.Health} 보유 골드 : {_player.Gold})" +
-                "\n"
+                $"500 G을 내면 체력을 회복할 수 있습니다. (현재 체력: {_player.Health} 보유 골드 : {_player.Gold})"
                 );
 
             Console.WriteLine(
+                "\n" +
                 "1. 휴식하기\n" +
                 "0. 나가기\n" +
                 "\n"

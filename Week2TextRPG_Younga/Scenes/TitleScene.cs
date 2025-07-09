@@ -21,7 +21,8 @@ namespace Week2TextRPG_Younga.Scenes
             Console.Clear();
             Console.Write(
                 "스파르타 마을에 오신 여러분 환영합니다.\n" +
-                "이곳에서 던전으로 들어가기전 활동을 할 수 있습니다.\n" + "\n" +
+                "이곳에서 던전으로 들어가기전 활동을 할 수 있습니다.\n" +
+                "\n" +
                 "1. 상태보기\n" +
                 "2. 인벤토리\n" +
                 "3. 상점\n" +

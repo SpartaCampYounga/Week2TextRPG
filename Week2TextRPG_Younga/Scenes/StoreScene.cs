@@ -32,16 +32,21 @@ namespace Week2TextRPG_Younga.Scenes
 
 
             Console.WriteLine(
+                "\n" +
                 "1. 아이템 구매\n" +
+                "2. 아이템 판매\n" +
                 "0. 나가기\n"
                 );
             Console.Write("원하시는 행동을 입력해주세요.\n>>");
-            input = GetIntegerRange(0, 2);
+            input = GetIntegerRange(0, 3);
 
             switch (input)
             {
-                case 1: 
-                    SceneManager.Instance.SetScene(SceneType.Purchase); 
+                case 1:
+                    SceneManager.Instance.SetScene(SceneType.Purchase);
+                    break;
+                case 2:
+                    SceneManager.Instance.SetScene(SceneType.Sell);
                     break;
                 case 0: 
                     SceneManager.Instance.SetScene(SceneType.Title); 

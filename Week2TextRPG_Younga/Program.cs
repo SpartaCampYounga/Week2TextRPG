@@ -27,7 +27,8 @@ namespace Week2TextRPG_Younga
                     new EquipmentScene(player),
                     new StoreScene(player),
                     new PurchaseScene(player),
-                    new RestScene(player)
+                    new RestScene(player),
+                    new SellScene(player)
                 };
             SceneManager.Instance.InitializeScenes(scenes);
             SceneManager.Instance.SetScene(SceneType.Title);

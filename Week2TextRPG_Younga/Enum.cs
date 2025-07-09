@@ -15,7 +15,8 @@ namespace Week2TextRPG_Younga
         Store,
         Purchase,
         Rest,
-        Dungeon
+        Dungeon,
+        Sell
     }
     enum Ability
     {

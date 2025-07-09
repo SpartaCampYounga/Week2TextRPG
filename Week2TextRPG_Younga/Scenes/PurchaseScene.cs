@@ -31,6 +31,7 @@ namespace Week2TextRPG_Younga.Scenes
             SceneManager.Instance.store.DisplayItems(true, _player);
 
             Console.WriteLine(
+                "\n" +
                 "0. 나가기\n"
                 );
             Console.Write("원하시는 행동을 입력해주세요.\n>>");

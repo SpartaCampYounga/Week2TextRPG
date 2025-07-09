@@ -74,8 +74,6 @@ namespace Week2TextRPG_Younga
             //else Console.Write($"체력: {health + totalHealthBonus} (+{totalHealthBonus})\n");
             //골드
             Console.Write($"Gold {gold} G\n");
-
-            Console.WriteLine();
         }
 
         public void DisplayInventory(bool isNumbered)
@@ -94,7 +92,6 @@ namespace Week2TextRPG_Younga
                 display += inventory[i].ToString();
                 Console.WriteLine(display);
             }
-            Console.WriteLine();
         }
         public void PurchaseItem(Item item) //Store SellToPlayer()에서만 호출됨
         {
@@ -104,7 +101,17 @@ namespace Week2TextRPG_Younga
             gold -= item.Price;
             Console.WriteLine($"{item.Name}을 구매했다! {gold}이 남았다.");
         }
-
+        public void SellItem(Item item)
+        {
+            int sellPrice = (int)Math.Round(item.Price * 0.8);  //일단 반올림함...
+            gold += sellPrice;
+            Item itemToRemove = inventory.FirstOrDefault(x => x.Id == item.Id);
+            if (itemToRemove != null)
+            {
+                inventory.Remove(itemToRemove);
+                Console.WriteLine($"{itemToRemove.Name}을 {sellPrice} G에 판매하였습니다.");
+            }
+        }
         public bool TakeRest()
         {
             if(gold >= 500)
@@ -150,5 +157,4 @@ namespace Week2TextRPG_Younga
 //        %% -exp : 던전 횟수 카운트
 //        %% +void EnterDungeon(Dungeon dungeon)
 
-//        %% +void SellItem(Item item) 상점은 조건 체크 X 하고 무조건 매입
 //        %% +void LevelUp()
