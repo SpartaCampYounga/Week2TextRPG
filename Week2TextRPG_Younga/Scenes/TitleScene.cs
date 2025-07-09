@@ -5,11 +5,15 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Week2TextRPG_Younga
+namespace Week2TextRPG_Younga.Scenes
 {
     internal class TitleScene : SceneBase, IScene
     {
-        public override void LoadScene(Player player)
+        public TitleScene(Player player) : base(player)
+        {
+        }
+
+        public override void LoadScene()
         {
             int input;
 
@@ -27,13 +31,13 @@ namespace Week2TextRPG_Younga
             switch (input)
             {
                 case 1:
-                    LoadStatusScene(player);
+                    SceneManager.Instance.SetScene(new StatusScene(_player));
                     break;
                 case 2:
-                    LoadInventoryScene(player);
+                    SceneManager.Instance.SetScene(new InventoryScene(_player));
                     break;
                 case 3:
-                    LoadStoreScene(player);
+                    SceneManager.Instance.SetScene(new StoreScene(_player));
                     break;
             }
         }

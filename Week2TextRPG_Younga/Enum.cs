@@ -29,8 +29,6 @@ namespace Week2TextRPG_Younga
         Gloves,
         Boots,
         Accessory,
-        Shield,
-        Ring,
-        Necklace
+        Shield
     }
 }

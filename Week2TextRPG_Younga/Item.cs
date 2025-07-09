@@ -51,10 +51,10 @@ namespace Week2TextRPG_Younga
                 display += ability.Key + " +" + ability.Value + "\t|";
             }
             display += description + "\t|";
-            display += price + " G\t|\n";
 
             return display;
         }
+
         public void Equip()
         {
             isEquipped = true;

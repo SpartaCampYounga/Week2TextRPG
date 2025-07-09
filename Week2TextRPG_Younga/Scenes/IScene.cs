@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Week2TextRPG_Younga
+namespace Week2TextRPG_Younga.Scenes
 {
     internal interface IScene
     {
-        SceneType SceneType { get; set; } 
-        void LoadScene(Player player);
+        SceneType SceneType { get; set; }
+
+        void LoadScene();
     }
 }
