@@ -13,13 +13,14 @@ namespace Week2TextRPG_Younga
         Inventory,
         Equipment,
         Store,
-        Purchase
+        Purchase,
+        Rest,
+        Dungeon
     }
     enum Ability
     {
         Attack,
-        Defence,
-        Health
+        Defence
     }
     public enum EquipSlot
     {

@@ -39,5 +39,10 @@ namespace Week2TextRPG_Younga.Scenes
             } while (!isSuccessful);
             return integer;
         }
+        protected void WaitResponse()
+        {
+            Console.WriteLine("계속 진행하려면 아무키나 입력하세요...");
+            Console.ReadKey();
+        }
     }
 }

@@ -17,8 +17,7 @@ namespace Week2TextRPG_Younga
         private Dictionary<Ability, int> enhancement = new Dictionary<Ability, int>
         {
             { Ability.Attack, 0 },
-            { Ability.Defence, 0 },
-            { Ability.Health, 0 }
+            { Ability.Defence, 0 }
         };  //공격력+5: Attack(enum) 5(int) 
         private EquipSlot equipSlot;
 

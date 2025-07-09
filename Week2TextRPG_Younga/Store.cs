@@ -16,7 +16,7 @@ namespace Week2TextRPG_Younga
 
         public Store()
         {
-            //CreateAllItemJsonFile();
+            CreateAllItemJsonFile();
             ItemsForSale = GetStoreItemListFromJsonFile();
         }
         public void DisplayItems(bool isNumbered, Player player)
@@ -73,8 +73,7 @@ namespace Week2TextRPG_Younga
                 new Item("스파르타의 투구", 2500, "스파르타의 전사들을 상징합니다.", new Dictionary<Ability, int> { { Ability.Defence, 9 } }, EquipSlot.Helmet),
                 new Item("낡은 신발", 400, "불편하지만 발을 보호합니다.", new Dictionary<Ability, int> { { Ability.Defence, 1 } }, EquipSlot.Boots),
                 new Item("가죽 신발", 1000, "튼튼하고 편안합니다.", new Dictionary<Ability, int> { { Ability.Defence, 3 } }, EquipSlot.Boots),
-                new Item("반지", 1200, "어떤 염원이 담겼습니다. 체력이 상승합니다.", new Dictionary<Ability, int> { { Ability.Health, 3 } }, EquipSlot.Accessory),
-                new Item("목걸이", 1800, "어떤 염원이 담겼습니다. 체력이 상승합니다.", new Dictionary<Ability, int> { { Ability.Health, 5 } }, EquipSlot.Accessory),
+                new Item("반지", 1200, "어떤 염원이 담겼습니다. 공격력과 방어력이 상승합니다.", new Dictionary<Ability, int> { { Ability.Attack, 1 }, { Ability.Defence, 1 } }, EquipSlot.Accessory),
                 new Item("스파르타의 방패", 4000, "스파르타 전사들이 사용했다는 전설의 방패입니다.", new Dictionary<Ability, int> { { Ability.Defence, 20 } }, EquipSlot.Shield)
             };
             // 파일 생성 후 쓰기

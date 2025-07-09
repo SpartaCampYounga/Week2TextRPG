@@ -44,7 +44,7 @@ namespace Week2TextRPG_Younga
         {
             int totalAttackBonus = 0;
             int totalDefenseBonus = 0;
-            int totalHealthBonus = 0;
+            //int totalHealthBonus = 0;
 
             if (inventory.Count != 0)
             {
@@ -54,7 +54,7 @@ namespace Week2TextRPG_Younga
                     {
                         totalAttackBonus += item.Enhancement.TryGetValue(Ability.Attack, out int attackBonus) ? attackBonus : 0;
                         totalDefenseBonus += item.Enhancement.TryGetValue(Ability.Defence, out int defenceBonus) ? defenceBonus : 0;
-                        totalHealthBonus += item.Enhancement.TryGetValue(Ability.Health, out int healthBonus) ? healthBonus : 0;
+                        //totalHealthBonus += item.Enhancement.TryGetValue(Ability.Health, out int healthBonus) ? healthBonus : 0;
                     }
                 }
             }
@@ -70,8 +70,8 @@ namespace Week2TextRPG_Younga
             if (totalDefenseBonus == 0) Console.Write($"방어력: {defence}\n");
             else Console.Write($"방어력: {attack + totalDefenseBonus} (+{totalDefenseBonus})\n");
             //체력
-            if (totalHealthBonus == 0) Console.Write($"체력: {health}\n");
-            else Console.Write($"체력: {health + totalHealthBonus} (+{totalHealthBonus})\n");
+            //if (totalHealthBonus == 0) Console.Write($"체력: {health}\n");
+            //else Console.Write($"체력: {health + totalHealthBonus} (+{totalHealthBonus})\n");
             //골드
             Console.Write($"Gold {gold} G\n");
 
@@ -105,6 +105,20 @@ namespace Week2TextRPG_Younga
             gold -= item.Price;
             Console.WriteLine($"{item.Name}을 구매했다! {gold}이 남았다.");
         }
+
+        public bool TakeRest()
+        {
+            if(gold >= 500)
+            {
+                gold -= 500;
+                health = 100;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
 
@@ -112,11 +126,7 @@ namespace Week2TextRPG_Younga
 //        %%----도전 기능
 //        %% -Dictionaly ~ItemSlot, Item ~equipment
 //        %% -exp : 던전 횟수 카운트
-//        %% +void TakeRest()
 //        %% +void EnterDungeon(Dungeon dungeon)
 
-//        %%실제 
-//        %%----도전 기능
-//        %% +void TakeRest()
 //        %% +void SellItem(Item item) 상점은 조건 체크 X 하고 무조건 매입
 //        %% +void LevelUp()
