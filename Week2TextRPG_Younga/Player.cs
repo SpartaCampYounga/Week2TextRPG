@@ -17,7 +17,8 @@ namespace Week2TextRPG_Younga
         private int defence;
         private int health;
         private int gold;
-        private List<Item> inventory = new List<Item>();   //for now, hardcoding
+        private List<Item> inventory = new List<Item>();
+        public Dictionary<EquipSlot, Item> equipment = new Dictionary<EquipSlot, Item>();
 
         public int Id => id;
         public int Level => level;
@@ -117,6 +118,23 @@ namespace Week2TextRPG_Younga
             else
             {
                 return false;
+            }
+        }
+
+        public void Equip(Item item)
+        {
+            Item currentItem; ////스위치만 하는 거임
+            if(equipment.ContainsKey(item.EquipSlot))
+            {
+                currentItem = equipment[item.EquipSlot];
+                Console.WriteLine("이미 장착
+
+            }
+            else
+            {
+                equipment.Add(item.EquipSlot, item);
+
+
             }
         }
     }
