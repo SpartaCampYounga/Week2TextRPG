@@ -8,7 +8,7 @@ namespace Week2TextRPG_Younga.Scenes
 {
     internal abstract class SceneBase : IScene
     {
-        public SceneType SceneType { get; set; }
+        public abstract SceneType SceneType { get; }
 
         protected Player _player;
 

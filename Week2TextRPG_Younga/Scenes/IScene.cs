@@ -8,8 +8,7 @@ namespace Week2TextRPG_Younga.Scenes
 {
     internal interface IScene
     {
-        SceneType SceneType { get; set; }
-
+        public SceneType SceneType { get; }
         void LoadScene();
     }
 }

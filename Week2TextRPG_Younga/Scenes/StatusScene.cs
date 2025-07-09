@@ -9,6 +9,7 @@ namespace Week2TextRPG_Younga.Scenes
 {
     internal class StatusScene : SceneBase, IScene
     {
+        public override SceneType SceneType => SceneType.Status;
         public StatusScene(Player player) : base(player)
         {
         }
@@ -29,7 +30,7 @@ namespace Week2TextRPG_Younga.Scenes
             Console.WriteLine("0. 나가기\n");
             Console.Write("원하시는 행동을 입력해주세요.\n>>");
             input = GetIntegerRange(0, 1);
-            SceneManager.Instance.SetScene(new TitleScene(_player));
+            SceneManager.Instance.SetScene(SceneType.Title);
         }
     }
 }

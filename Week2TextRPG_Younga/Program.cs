@@ -19,7 +19,17 @@ namespace Week2TextRPG_Younga
             Player player = new Player(input);
             player.Inventory.Add(SceneManager.Instance.store.ItemsForSale[1]);
 
-            SceneManager.Instance.SetScene(new TitleScene(player));
+            SceneBase[] scenes =
+                {
+                    new TitleScene(player),
+                    new StatusScene(player),
+                    new InventoryScene(player),
+                    new EquipmentScene(player),
+                    new StoreScene(player),
+                    new PurchaseScene(player)
+                };
+            SceneManager.Instance.InitializeScenes(scenes);
+            SceneManager.Instance.SetScene(SceneType.Title);
         }
     }
 }

@@ -9,6 +9,7 @@ namespace Week2TextRPG_Younga.Scenes
 {
     internal class TitleScene : SceneBase, IScene
     {
+        public override SceneType SceneType => SceneType.Title;
         public TitleScene(Player player) : base(player)
         {
         }
@@ -31,13 +32,13 @@ namespace Week2TextRPG_Younga.Scenes
             switch (input)
             {
                 case 1:
-                    SceneManager.Instance.SetScene(new StatusScene(_player));
+                    SceneManager.Instance.SetScene(SceneType.Status);
                     break;
                 case 2:
-                    SceneManager.Instance.SetScene(new InventoryScene(_player));
+                    SceneManager.Instance.SetScene(SceneType.Inventory);
                     break;
                 case 3:
-                    SceneManager.Instance.SetScene(new StoreScene(_player));
+                    SceneManager.Instance.SetScene(SceneType.Store);
                     break;
             }
         }

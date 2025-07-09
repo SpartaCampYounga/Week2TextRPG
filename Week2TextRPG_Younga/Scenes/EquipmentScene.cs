@@ -9,6 +9,8 @@ namespace Week2TextRPG_Younga.Scenes
 {
     internal class EquipmentScene : SceneBase, IScene
     {
+
+        public override SceneType SceneType => SceneType.Equipment;
         public EquipmentScene(Player player) : base(player)
         {
         }
@@ -36,7 +38,7 @@ namespace Week2TextRPG_Younga.Scenes
 
             if (input == 0)
             {
-                SceneManager.Instance.SetScene(new InventoryScene(_player));
+                SceneManager.Instance.SetScene(SceneType.Inventory);
             }
             else
             {
@@ -45,7 +47,7 @@ namespace Week2TextRPG_Younga.Scenes
                 else
                     _player.Inventory[input - 1].Equip();
 
-                SceneManager.Instance.SetScene(this);
+                SceneManager.Instance.SetScene(SceneType.Equipment);
             }
         }
     }

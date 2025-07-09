@@ -10,6 +10,7 @@ namespace Week2TextRPG_Younga.Scenes
 {
     internal class StoreScene : SceneBase, IScene
     {
+        public override SceneType SceneType => SceneType.Store;
         public StoreScene(Player player) : base(player)
         {
         }
@@ -40,10 +41,10 @@ namespace Week2TextRPG_Younga.Scenes
             switch (input)
             {
                 case 1: 
-                    SceneManager.Instance.SetScene(new PurchaseScene(_player)); 
+                    SceneManager.Instance.SetScene(SceneType.Purchase); 
                     break;
                 case 0: 
-                    SceneManager.Instance.SetScene(new TitleScene(_player)); 
+                    SceneManager.Instance.SetScene(SceneType.Title); 
                     break;
             }
         }

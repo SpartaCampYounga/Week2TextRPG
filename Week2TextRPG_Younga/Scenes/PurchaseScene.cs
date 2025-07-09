@@ -10,6 +10,7 @@ namespace Week2TextRPG_Younga.Scenes
 {
     internal class PurchaseScene : SceneBase, IScene
     {
+        public override SceneType SceneType => SceneType.Purchase;
         public PurchaseScene(Player player) : base(player)
         {
         }
@@ -37,17 +38,17 @@ namespace Week2TextRPG_Younga.Scenes
 
             if (input == 0)
             {
-                SceneManager.Instance.SetScene(new StoreScene(_player));
+                SceneManager.Instance.SetScene(SceneType.Store);
             }
             else
             {
                 Item selectedItem = SceneManager.Instance.store.ItemsForSale[input - 1];
                 SceneManager.Instance.store.SellToPlayer(_player, selectedItem);
             }
-            Console.WriteLine("계속 진행하려면 Enter를 입력하세요...");
-            Console.Read();
+            Console.WriteLine("계속 진행하려면 아무키나 입력하세요...");
+            Console.ReadKey();
 
-            SceneManager.Instance.SetScene(this);   
+            SceneManager.Instance.SetScene(SceneType.Purchase);   
             //결제 끝나고 나서는 purchase 씬으로 다시 오는데.. 아래 new Scene을 계속 생성해도 되는건가?
             //SceneManager.Instance.SetScene(new PurchaseScene(_player));
         }
