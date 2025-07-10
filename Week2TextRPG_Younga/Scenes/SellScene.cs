@@ -1,12 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-using Week2TextRPG_Younga.Classes;
+﻿using Week2TextRPG_Younga.Classes;
 using Week2TextRPG_Younga.Enum;
-using static System.Formats.Asn1.AsnWriter;
 
 namespace Week2TextRPG_Younga.Scenes
 {

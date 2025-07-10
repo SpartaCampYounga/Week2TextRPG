@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
-using Week2TextRPG_Younga.Classes;
-using Week2TextRPG_Younga.Enum;
-using static System.Net.Mime.MediaTypeNames;
+﻿using Week2TextRPG_Younga.Classes;
 
 namespace Week2TextRPG_Younga.Models
 {

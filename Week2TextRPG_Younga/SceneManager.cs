@@ -1,12 +1,4 @@
 ﻿using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Numerics;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Linq;
 using Week2TextRPG_Younga.Classes;
 using Week2TextRPG_Younga.Enum;
 using Week2TextRPG_Younga.Models;
