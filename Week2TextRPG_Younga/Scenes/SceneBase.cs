@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Week2TextRPG_Younga.Classes;
+using Week2TextRPG_Younga.Enum;
 
 namespace Week2TextRPG_Younga.Scenes
 {
@@ -38,6 +40,11 @@ namespace Week2TextRPG_Younga.Scenes
                 }
             } while (!isSuccessful);
             return integer;
+        }
+        protected void WaitResponse()
+        {
+            Console.WriteLine("계속 진행하려면 아무키나 입력하세요...");
+            Console.ReadKey();
         }
     }
 }

@@ -4,23 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Week2TextRPG_Younga
+namespace Week2TextRPG_Younga.Enum
 {
-    enum SceneType
-    {
-        Title,
-        Status,
-        Inventory,
-        Equipment,
-        Store,
-        Purchase
-    }
-    enum Ability
-    {
-        Attack,
-        Defence,
-        Health
-    }
     public enum EquipSlot
     {
         Helmet,
