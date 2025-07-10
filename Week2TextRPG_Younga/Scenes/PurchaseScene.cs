@@ -20,8 +20,9 @@ namespace Week2TextRPG_Younga.Scenes
         public override void LoadScene()
         {
             int input;
-
             Console.Clear();
+            SceneManager.Instance.SavePlayer(_player);
+
             Console.WriteLine("LoadStoreScene");
             Console.WriteLine(
                 "상점 - 아이템 구매\n" +

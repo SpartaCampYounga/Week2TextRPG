@@ -15,7 +15,7 @@ namespace Week2TextRPG_Younga.Classes
 
         public Store()
         {
-            CreateAllItemJsonFile();
+            //CreateAllItemJsonFile();
             ItemsForSale = GetStoreItemListFromJsonFile();
         }
         public void DisplayItems(bool isNumbered, Player player)
@@ -55,7 +55,7 @@ namespace Week2TextRPG_Younga.Classes
 
 
         //Item json파일.
-        static string path = "D:\\CampWorkspace\\Week2TextRPG_Younga\\Week2TextRPG_Younga";
+        static string path = "D:\\CampWorkspace\\Week2TextRPG_Younga\\Week2TextRPG_Younga\\Jsons";
         void CreateAllItemJsonFile()
         {
             Item[] allItems =

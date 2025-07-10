@@ -16,15 +16,25 @@ namespace Week2TextRPG_Younga
         {
             string input;
 
+            Console.WriteLine("캐릭터를 생성합니다. (이전에 사용한 캐릭터를 불러오려면 이름을 똑같이 입력해주세요.)");
             Console.Write("이름을 입력해주세요: ");
             input = Console.ReadLine();
 
-            Player player = new Player(input);
-            player.Inventory.Add(SceneManager.Instance._store.ItemsForSale[1]);
+            Player player = SceneManager.Instance.LoadPlayer(input);    //파일 찾아서 시도해보고
+            if (player == null) //파일 못찾아서 비어있으면 새로 생성
+            {
+                player = new Player(input);
+                player.Inventory.Add(SceneManager.Instance._store.ItemsForSale[1]);
 
+                Console.WriteLine($"{input}이 생성되었습니다. ");
+            }
+            else
+            {
+                Console.WriteLine($"{input}을 불러왔습니다. ");
+            }
             SceneBase[] scenes =
                 {
-                    new TitleScene(player),
+                    new MainScene(player),
                     new StatusScene(player),
                     new InventoryScene(player),
                     new EquipmentScene(player),
@@ -42,7 +52,11 @@ namespace Week2TextRPG_Younga
             };
             SceneManager.Instance.InitializeScenes(scenes);
             SceneManager.Instance.InitializeDungeons(dungeons);
-            SceneManager.Instance.SetScene(SceneType.Title);
+
+            Console.WriteLine("계속 진행하려면 아무키나 입력하세요...");
+            Console.ReadKey();
+
+            SceneManager.Instance.SetScene(SceneType.Main);
         }
     }
 }

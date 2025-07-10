@@ -19,9 +19,10 @@ namespace Week2TextRPG_Younga.Scenes
         public override void LoadScene()
         {
             int input;
-
             Console.Clear();
+            SceneManager.Instance.SavePlayer(_player);
             Console.WriteLine("LoadRestScene");
+
             Console.WriteLine(
                 "휴식하기\n" +
                 $"500 G을 내면 체력을 회복할 수 있습니다. (현재 체력: {_player.Health} 보유 골드 : {_player.Gold})"
@@ -47,7 +48,7 @@ namespace Week2TextRPG_Younga.Scenes
                     SceneManager.Instance.SetScene(SceneType.Rest);
                     break;
                 case 0:
-                    SceneManager.Instance.SetScene(SceneType.Title);
+                    SceneManager.Instance.SetScene(SceneType.Main);
                     break;
             }
         }

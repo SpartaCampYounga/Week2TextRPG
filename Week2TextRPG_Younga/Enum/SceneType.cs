@@ -8,7 +8,8 @@ namespace Week2TextRPG_Younga.Enum
 {
     enum SceneType
     {
-        Title,
+        //Title,
+        Main,
         Status,
         Inventory,
         Equipment,

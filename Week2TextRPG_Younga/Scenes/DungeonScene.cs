@@ -19,9 +19,10 @@ namespace Week2TextRPG_Younga.Scenes
         public override void LoadScene()
         {
             int input;
-
             Console.Clear();
+            SceneManager.Instance.SavePlayer(_player);
             Console.WriteLine("LoadInventoryScene");
+
             Console.WriteLine(
                 "던전입장\n" +
                 $"이곳에서 원하는 던전에 입장할 수 있습니다. (현재 체력: {_player.Health})\n"
@@ -41,7 +42,7 @@ namespace Week2TextRPG_Younga.Scenes
 
             if (input == 0)
             {
-                SceneManager.Instance.SetScene(SceneType.Title);
+                SceneManager.Instance.SetScene(SceneType.Main);
             }
             else
             {

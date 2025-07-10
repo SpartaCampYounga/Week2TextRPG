@@ -19,9 +19,10 @@ namespace Week2TextRPG_Younga.Scenes
         public override void LoadScene()
         {
             int input;
-
             Console.Clear();
+            SceneManager.Instance.SavePlayer(_player);
             Console.WriteLine("LoadStatusScene");
+
             Console.WriteLine(
                 "상태보기\n" +
                 "캐릭터의 정보가 표시됩니다.\n"
@@ -35,7 +36,7 @@ namespace Week2TextRPG_Younga.Scenes
                 );
             Console.Write("원하시는 행동을 입력해주세요.\n>>");
             input = GetIntegerRange(0, 1);
-            SceneManager.Instance.SetScene(SceneType.Title);
+            SceneManager.Instance.SetScene(SceneType.Main);
         }
     }
 }

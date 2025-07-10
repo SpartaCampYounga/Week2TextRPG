@@ -1,10 +1,12 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Week2TextRPG_Younga.Classes;
 using Week2TextRPG_Younga.Enum;
 using Week2TextRPG_Younga.Models;
@@ -75,6 +77,29 @@ namespace Week2TextRPG_Younga
         public void InitializeDungeon(Dungeon dungeon)
         {
             _dungeons.Add(dungeon);
+        }
+
+        //json파일 위치.
+        static string path = "D:\\CampWorkspace\\Week2TextRPG_Younga\\Week2TextRPG_Younga\\Jsons";
+        public void SavePlayer(Player player)
+        {
+            // 파일 생성 후 쓰기
+            File.WriteAllText(path + $@"\\player_{player.Name}.json", JsonConvert.SerializeObject(player));
+            Console.WriteLine($"{player.Name}(이)가 저장되었습니다.");
+        }
+        public Player? LoadPlayer(string playerName)
+        {
+            Player? player = null;
+            try
+            {
+                player = JsonConvert.DeserializeObject<Player>(File.ReadAllText(path + $@"\\player_{playerName}.json"));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.WriteLine($"{playerName}(은)는 존재하지 않습니다.");
+            }
+            return player;
         }
     }
 }

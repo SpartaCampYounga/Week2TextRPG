@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
 using System.Text;
+using Newtonsoft.Json;
 using System.Threading.Tasks;
 using Week2TextRPG_Younga.Enum;
 
@@ -122,16 +123,18 @@ namespace Week2TextRPG_Younga.Classes
         }
         public bool TakeRest()
         {
+            bool isSuccessful;
             if(gold >= 500)
             {
                 gold -= 500;
                 health = 100;
-                return true;
+                isSuccessful = true;
             }
             else
             {
-                return false;
+                isSuccessful = false;
             }
+            return isSuccessful;
         }
 
         public void Equip(Item item)

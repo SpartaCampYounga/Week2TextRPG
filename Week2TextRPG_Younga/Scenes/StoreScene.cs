@@ -20,9 +20,10 @@ namespace Week2TextRPG_Younga.Scenes
         public override void LoadScene()
         {
             int input;
-
             Console.Clear();
+            SceneManager.Instance.SavePlayer(_player);
             Console.WriteLine("LoadStoreScene");
+
             Console.WriteLine(
                 "상점\n" +
                 "필요한 아이템을 얻을 수 있는 상점입니다.\n\n" +
@@ -51,7 +52,7 @@ namespace Week2TextRPG_Younga.Scenes
                     SceneManager.Instance.SetScene(SceneType.Sell);
                     break;
                 case 0: 
-                    SceneManager.Instance.SetScene(SceneType.Title); 
+                    SceneManager.Instance.SetScene(SceneType.Main); 
                     break;
             }
         }

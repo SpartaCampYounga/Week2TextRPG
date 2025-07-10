@@ -20,9 +20,10 @@ namespace Week2TextRPG_Younga.Scenes
         public override void LoadScene()
         {
             int input;
-
             Console.Clear();
+            SceneManager.Instance.SavePlayer(_player);
             Console.WriteLine("LoadInventoryScene");
+
             Console.WriteLine(
                 "인벤토리\n" +
                 "보유 중인 아이템을 관리할 수 있습니다.\n\n" +
@@ -42,7 +43,7 @@ namespace Week2TextRPG_Younga.Scenes
                     SceneManager.Instance.SetScene(SceneType.Equipment);
                     break;
                 case 0:
-                    SceneManager.Instance.SetScene(SceneType.Title);
+                    SceneManager.Instance.SetScene(SceneType.Main);
                     break;
             }
         }
