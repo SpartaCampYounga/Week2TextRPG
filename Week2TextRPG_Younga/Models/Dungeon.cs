@@ -15,23 +15,20 @@ namespace Week2TextRPG_Younga.Models
         private static int nextId = 1;
         private int id;
         private string name;
-        private int requiredAttack;
         private int requiredDefense;
         private int rewardGold;
         private int rewardExp;
         
         public int Id => id;
         public string Name => name;
-        public int RequiredAttack => requiredAttack;
         public int RequiredDefense => requiredDefense;
         public int RewardGold => rewardGold;
         public int RewardExp => rewardExp;
 
-        public Dungeon(string name, int requiredAttack, int requiredDefense, int rewardGold, int rewardExp)
+        public Dungeon(string name, int requiredDefense, int rewardGold, int rewardExp)
         {
             id = nextId++;
             this.name = name;
-            this.requiredAttack = requiredAttack;
             this.requiredDefense = requiredDefense;
             this.rewardGold = rewardGold;
             this.rewardExp = rewardExp;
@@ -96,6 +93,16 @@ namespace Week2TextRPG_Younga.Models
         }
         public void Rewarded(Player player)
         {
+            Random random = new Random();
+            int clearGold = rewardGold + random.Next(player.Attack, player.Attack * 2);
+            int clearExp = rewardExp + random.Next(player.Attack, player.Attack * 2);
+            Console.WriteLine($"{clearGold} G / 경험치 {clearExp} 를 획득했다!");
+
+            player.EarnGold(clearGold);
+            player.EarnExp(clearExp);
+
+            player.DisplayPlayerStatus();
+
         }
     }
 }

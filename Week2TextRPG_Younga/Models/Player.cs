@@ -19,6 +19,7 @@ namespace Week2TextRPG_Younga.Classes
         private int defence;
         private int health;
         private int gold;
+        private int exp;
         private List<Item> inventory = new List<Item>();
         public Dictionary<EquipSlot, Item> equipment = new Dictionary<EquipSlot, Item>();
 
@@ -30,6 +31,7 @@ namespace Week2TextRPG_Younga.Classes
         public int Defence => defence;
         public int Health => health;
         public int Gold => gold;
+        public int Exp => exp;
         public List<Item> Inventory => inventory;
 
         public Player(string name)
@@ -42,6 +44,7 @@ namespace Week2TextRPG_Younga.Classes
             defence = 5;
             health = 100;
             gold = 1500;
+            exp = 0;
         }
         public void DisplayPlayerStatus()
         {
@@ -77,6 +80,8 @@ namespace Week2TextRPG_Younga.Classes
             //else Console.Write($"체력: {health + totalHealthBonus} (+{totalHealthBonus})\n");
             //골드
             Console.Write($"Gold {gold} G\n");
+            //경험치
+            Console.Write($"Exp {exp}\n");
         }
 
         public void DisplayInventory(bool isNumbered)
@@ -156,13 +161,20 @@ namespace Week2TextRPG_Younga.Classes
         {
             health -= damage;
         }
+        public void EarnGold(int gold)
+        {
+            this.gold += gold;
+        }
+        public void EarnExp(int exp)
+        {
+            this.exp += exp;
+            if (this.exp >= 100) LevelUp();
+        }
+        public void LevelUp()   //일단은 경험치 100마다 레벨업
+        {
+            exp -= 100;
+            level++;
+            Console.WriteLine($"레벨업하여 Lv.{level}이 되었다!" + "\n");
+        }
     }
 }
-
-//      미구현 항목들
-//        %%----도전 기능
-//        %% -Dictionaly ~ItemSlot, Item ~equipment
-//        %% -exp : 던전 횟수 카운트
-//        %% +void EnterDungeon(Dungeon dungeon)
-
-//        %% +void LevelUp()
