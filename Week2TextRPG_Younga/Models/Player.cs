@@ -10,9 +10,10 @@ namespace Week2TextRPG_Younga.Classes
 {
     internal class Player
     {
+        private static int nextId = 1;
         private int id;
         private int level;
-        private string name; 
+        private string name;
         private string job;
         private int attack;
         private int defence;
@@ -33,7 +34,7 @@ namespace Week2TextRPG_Younga.Classes
 
         public Player(string name)
         {
-            id = 1;
+            id = nextId++;
             level = 1;
             this.name = name;
             job = "전사";
@@ -71,6 +72,7 @@ namespace Week2TextRPG_Younga.Classes
             if (totalDefenseBonus == 0) Console.Write($"방어력: {defence}\n");
             else Console.Write($"방어력: {attack + totalDefenseBonus} (+{totalDefenseBonus})\n");
             //체력
+            Console.Write($"체력: {health}\n");
             //if (totalHealthBonus == 0) Console.Write($"체력: {health}\n");
             //else Console.Write($"체력: {health + totalHealthBonus} (+{totalHealthBonus})\n");
             //골드
@@ -148,6 +150,11 @@ namespace Week2TextRPG_Younga.Classes
                 equipment.Add(item.EquipSlot, item);
                 Console.WriteLine($"{item.Name}을 장착했습니다.");
             }
+        }
+
+        public void Damaged(int damage)
+        {
+            health -= damage;
         }
     }
 }

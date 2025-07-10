@@ -4,6 +4,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Week2TextRPG_Younga.Classes;
 using Week2TextRPG_Younga.Enum;
 using static System.Formats.Asn1.AsnWriter;
 
@@ -29,14 +30,14 @@ namespace Week2TextRPG_Younga.Scenes
                 $"{_player.Gold} G\n\n" +
                 "[아이템 목록]"
                 );
-            SceneManager.Instance.store.DisplayItems(true, _player);
+            SceneManager.Instance._store.DisplayItems(true, _player);
 
             Console.WriteLine(
                 "\n" +
                 "0. 나가기\n"
                 );
             Console.Write("원하시는 행동을 입력해주세요.\n>>");
-            input = GetIntegerRange(0, SceneManager.Instance.store.ItemsForSale.Count() + 1);
+            input = GetIntegerRange(0, SceneManager.Instance._store.ItemsForSale.Count() + 1);
 
             if (input == 0)
             {
@@ -44,8 +45,8 @@ namespace Week2TextRPG_Younga.Scenes
             }
             else
             {
-                Item selectedItem = SceneManager.Instance.store.ItemsForSale[input - 1];
-                SceneManager.Instance.store.SellToPlayer(_player, selectedItem);
+                Item selectedItem = SceneManager.Instance._store.ItemsForSale[input - 1];
+                SceneManager.Instance._store.SellToPlayer(_player, selectedItem);
             }
 
             WaitResponse();

@@ -5,18 +5,21 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Week2TextRPG_Younga.Classes;
 using Week2TextRPG_Younga.Enum;
+using Week2TextRPG_Younga.Models;
 using Week2TextRPG_Younga.Scenes;
 
 namespace Week2TextRPG_Younga
 {
     internal class SceneManager
     {
-        public Store store { get; private set; }
+        public Store _store { get; private set; }
         public Dictionary<SceneType, SceneBase> _scenes = new Dictionary<SceneType, SceneBase>();
+        public Dictionary<DungeonType, Dungeon> _dungeons = new Dictionary<DungeonType, Dungeon>();
         private SceneManager() 
         { 
-            store = new Store();
+            _store = new Store();
         }
 
         private static SceneManager instance;
@@ -60,6 +63,18 @@ namespace Week2TextRPG_Younga
         public void InitializeScene(SceneBase scene)
         {
             _scenes.Add(scene.SceneType, scene);
+        }
+        public void InitializeDungeons(Dungeon[] dungeons)
+        {
+            foreach (Dungeon dungeon in dungeons)
+            {
+                InitializeDungeon(dungeon);
+            }
+        }
+
+        public void InitializeDungeon(Dungeon dungeon)
+        {
+            _dungeons.Add(dungeon.DungeonType, dungeon);
         }
     }
 }

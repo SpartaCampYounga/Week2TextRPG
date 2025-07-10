@@ -4,6 +4,8 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Week2TextRPG_Younga.Classes;
+using Week2TextRPG_Younga.Enum;
 using static System.Formats.Asn1.AsnWriter;
 
 namespace Week2TextRPG_Younga.Scenes
@@ -28,7 +30,7 @@ namespace Week2TextRPG_Younga.Scenes
                 $"{_player.Gold} G\n\n" +
                 "[아이템 목록]"
                 );
-            SceneManager.Instance.store.DisplayItems(false, _player);
+            SceneManager.Instance._store.DisplayItems(false, _player);
 
 
             Console.WriteLine(
