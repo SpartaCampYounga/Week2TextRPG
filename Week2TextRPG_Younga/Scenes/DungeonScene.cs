@@ -28,11 +28,9 @@ namespace Week2TextRPG_Younga.Scenes
                 );
 
             int index = 0;
-            DungeonType[] dungeonTypes = new DungeonType[SceneManager.Instance._dungeons.Count()]; //입력 받은 후 출력할 때 같은 DungeonType Key 값 체크 용
-            foreach (Dungeon dungeon in SceneManager.Instance._dungeons.Values)
+            foreach (Dungeon dungeon in SceneManager.Instance._dungeons)
             {
-                dungeonTypes[index++] = dungeon.DungeonType;
-                Console.WriteLine(index + ". " + dungeon);
+                Console.WriteLine(++index + ". " + dungeon);
             }
 
             Console.WriteLine(
@@ -47,10 +45,9 @@ namespace Week2TextRPG_Younga.Scenes
             }
             else
             {
-                DungeonType selectedType = dungeonTypes[index - 1];
-                if (SceneManager.Instance._dungeons[selectedType].TryEnter(_player))    //던전 입장 가능 체크
+                if (SceneManager.Instance._dungeons[input - 1].TryEnter(_player))    //던전 입장 가능 체크
                 {
-                    SceneManager.Instance._dungeons[selectedType].Rewarded(_player);    //플레이어 rewarded
+                    SceneManager.Instance._dungeons[input - 1].Rewarded(_player);    //플레이어 rewarded
                 }
             }
 

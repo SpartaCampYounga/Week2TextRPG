@@ -36,9 +36,9 @@ namespace Week2TextRPG_Younga
                 };
             Dungeon[] dungeons =
             {
-                new Dungeon(DungeonType.Easy, "쉬운 던전", 10, 5, 1000, 10),
-                new Dungeon(DungeonType.Normal, "일반 던전", 15, 11, 1700, 17),
-                new Dungeon(DungeonType.Hard, "어려운 던전", 20, 17, 2500, 25)
+                new Dungeon("쉬운 던전", 10, 5, 1000, 10),
+                new Dungeon("일반 던전", 15, 11, 1700, 17),
+                new Dungeon("어려운 던전", 20, 17, 2500, 25)
             };
             SceneManager.Instance.InitializeScenes(scenes);
             SceneManager.Instance.InitializeDungeons(dungeons);

@@ -14,7 +14,6 @@ namespace Week2TextRPG_Younga.Models
     {
         private static int nextId = 1;
         private int id;
-        private DungeonType dungeontype;
         private string name;
         private int requiredAttack;
         private int requiredDefense;
@@ -22,17 +21,15 @@ namespace Week2TextRPG_Younga.Models
         private int rewardExp;
         
         public int Id => id;
-        public DungeonType DungeonType => dungeontype;
         public string Name => name;
         public int RequiredAttack => requiredAttack;
         public int RequiredDefense => requiredDefense;
         public int RewardGold => rewardGold;
         public int RewardExp => rewardExp;
 
-        public Dungeon(DungeonType dungeontype, string name, int requiredAttack, int requiredDefense, int rewardGold, int rewardExp)
+        public Dungeon(string name, int requiredAttack, int requiredDefense, int rewardGold, int rewardExp)
         {
             id = nextId++;
-            this.dungeontype = dungeontype;
             this.name = name;
             this.requiredAttack = requiredAttack;
             this.requiredDefense = requiredDefense;
@@ -65,8 +62,8 @@ namespace Week2TextRPG_Younga.Models
                 int damage = player.Health / 2;
                 player.Damaged(damage);
 
-                Console.WriteLine("실패했다. 내 방어력이 너무 낮았을 지도... ");
-                Console.WriteLine($"데미지 {damage}를 받았습니다. (현재 체력: {player.Health})");
+                Console.WriteLine($"{name} 클리어에 실패했다. 내 방어력이 너무 낮았을 지도... ");
+                Console.WriteLine($"데미지 {damage}를 받았다. (현재 체력: {player.Health})");
 
                 isCleared = false;
             }
@@ -86,12 +83,12 @@ namespace Week2TextRPG_Younga.Models
                 if (player.Health <= damage)  //플레이어 체력 0보다 낮으면 보상 안줄거라서 false 출력.
                 {
                     player.Damaged(player.Health);
-                    Console.WriteLine("당신은 죽었습니다...");
+                    Console.WriteLine("죽었다...");
                     return false;
                 }
 
                 player.Damaged(damage);
-                Console.WriteLine($"데미지 {damage}를 받았습니다. (현재 체력: {player.Health})");
+                Console.WriteLine($"{name} 클리어에 성공했다. 데미지 {damage}를 받았다. (현재 체력: {player.Health})");
 
                 isCleared = true;
             }

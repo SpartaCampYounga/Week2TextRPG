@@ -16,7 +16,7 @@ namespace Week2TextRPG_Younga
     {
         public Store _store { get; private set; }
         public Dictionary<SceneType, SceneBase> _scenes = new Dictionary<SceneType, SceneBase>();
-        public Dictionary<DungeonType, Dungeon> _dungeons = new Dictionary<DungeonType, Dungeon>();
+        public List<Dungeon> _dungeons = new List<Dungeon>();
         private SceneManager() 
         { 
             _store = new Store();
@@ -74,7 +74,7 @@ namespace Week2TextRPG_Younga
 
         public void InitializeDungeon(Dungeon dungeon)
         {
-            _dungeons.Add(dungeon.DungeonType, dungeon);
+            _dungeons.Add(dungeon);
         }
     }
 }
