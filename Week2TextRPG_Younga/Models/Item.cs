@@ -1,4 +1,5 @@
 ﻿using Week2TextRPG_Younga.Enum;
+using Week2TextRPG_Younga.Utility;
 
 namespace Week2TextRPG_Younga.Classes
 {
@@ -35,14 +36,18 @@ namespace Week2TextRPG_Younga.Classes
 
         public override string ToString()
         {
-            string display = "";
-
-            display += $"{name}\t|";
+            string enhancementDisplay = "";
             foreach (KeyValuePair<Ability, int> ability in enhancement)
             {
-                display += ability.Key + " +" + ability.Value + "\t|";
+                enhancementDisplay += ability.Key + " + " + ability.Value + " "; //+ "\t|";
             }
-            display += description + "\t|";
+            string display =
+                FormatUtility.AlignWithPadding(name, 15) + " | " +
+                FormatUtility.AlignWithPadding(enhancementDisplay, 25) + "| " +
+                FormatUtility.AlignWithPadding(description, 55) + " | ";
+            //display += description + "\t|";
+
+            //display = string.Format("{0, 15} | {1, 15} | {2, 30} | ", name, enhancementDisplay, description);
 
             return display;
         }

@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using Week2TextRPG_Younga.Enum;
+using Week2TextRPG_Younga.Utility;
 
 namespace Week2TextRPG_Younga.Classes
 {
@@ -23,8 +24,9 @@ namespace Week2TextRPG_Younga.Classes
 
 
                 bool isOwned = player.Inventory.Any(x => x.Name == item.Name);
-                display += isOwned ? "판매완료\t|" : $"{item.Price} G\t|";
-
+                display += isOwned
+                    ? FormatUtility.AlignWithPadding("판매완료",10) : FormatUtility.AlignWithPadding($"{item.Price} G", 10);
+                display += " | ";
                 Console.WriteLine(display);
             }
         }
