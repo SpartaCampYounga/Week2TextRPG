@@ -70,8 +70,6 @@ namespace Week2TextRPG_Younga.Classes
             else Console.Write($"방어력: {attack + totalDefenseBonus} (+{totalDefenseBonus})\n");
             //체력
             Console.Write($"체력: {health}\n");
-            //if (totalHealthBonus == 0) Console.Write($"체력: {health}\n");
-            //else Console.Write($"체력: {health + totalHealthBonus} (+{totalHealthBonus})\n");
             //골드
             Console.Write($"Gold {gold} G\n");
             //경험치

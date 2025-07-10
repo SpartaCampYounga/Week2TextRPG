@@ -7,8 +7,6 @@ namespace Week2TextRPG_Younga
 {
     internal class Program
     {
-        //public static Store store = new Store();
-
         static void Main(string[] args)
         {
             string input;

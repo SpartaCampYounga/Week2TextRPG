@@ -6,7 +6,6 @@ namespace Week2TextRPG_Younga.Classes
     {
         private static int nextId = 1;
         private int id;
-        //private bool isEquipped;
         private string name;
         private int price;
         private string description;
@@ -18,7 +17,6 @@ namespace Week2TextRPG_Younga.Classes
         private EquipSlot equipSlot;
 
         public int Id => id;
-        // public bool IsEquipped => isEquipped;
         public string Name => name;
         public int Price => price;
         public string Description => description;
@@ -28,7 +26,6 @@ namespace Week2TextRPG_Younga.Classes
         public Item(string name, int price, string description, Dictionary<Ability, int> enhancement, EquipSlot equipSlot)
         {
             id = nextId++;
-            //this.isEquipped = false;
             this.name = name;
             this.price = price;
             this.description = description;

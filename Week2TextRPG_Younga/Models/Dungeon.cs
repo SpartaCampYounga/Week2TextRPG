@@ -37,7 +37,6 @@ namespace Week2TextRPG_Younga.Models
             {
                 display = isNumbered ? $"{dungeon.Id}. " : "";
                 display += dungeon.ToString();
-                //display += $"{dungeon.name} \t|" + $"방어력 {dungeon.requiredDefense} 이상 권장";
 
                 Console.WriteLine(display);
             }
