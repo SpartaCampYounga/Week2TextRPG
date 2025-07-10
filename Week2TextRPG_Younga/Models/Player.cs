@@ -115,7 +115,7 @@ namespace Week2TextRPG_Younga.Classes
         public bool TakeRest()
         {
             bool isSuccessful;
-            if(gold >= 500)
+            if(gold >= 500 && health < 100)
             {
                 gold -= 500;
                 health = 100;

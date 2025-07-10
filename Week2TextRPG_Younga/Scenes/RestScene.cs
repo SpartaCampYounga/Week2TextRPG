@@ -35,11 +35,19 @@ namespace Week2TextRPG_Younga.Scenes
             switch (input)
             {
                 case 1:
-                    if(_player.TakeRest())
+                    if (_player.Health == 100)
+                    {
+                        Console.WriteLine($"이미 체력이 가득차있습니다. (현재 체력: {_player.Health} 보유 골드 : {_player.Gold})");
+                    }
+                    else if(_player.TakeRest())
                     {
                         Console.WriteLine($"500골드를 소모하여 체력이 회복되었습니다. (현재 체력: {_player.Health} 보유 골드 : {_player.Gold})");
                     }
-                    WaitResponse();
+                    else
+                    {
+                        Console.WriteLine($"골드가 부족하여 휴식을 취할 수 없었습니다. (현재 체력: {_player.Health} 보유 골드 : {_player.Gold})");
+                    }
+                        WaitResponse();
                     SceneManager.Instance.SetScene(SceneType.Rest);
                     break;
                 case 0:
