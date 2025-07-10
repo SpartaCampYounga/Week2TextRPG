@@ -5,6 +5,7 @@ using System.Linq;
 using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using Week2TextRPG_Younga.Enum;
 using Week2TextRPG_Younga.Scenes;
 
 namespace Week2TextRPG_Younga
@@ -12,7 +13,7 @@ namespace Week2TextRPG_Younga
     internal class SceneManager
     {
         public Store store { get; private set; }
-        public readonly Dictionary<SceneType, SceneBase> _scenes = new Dictionary<SceneType, SceneBase>();
+        public Dictionary<SceneType, SceneBase> _scenes = new Dictionary<SceneType, SceneBase>();
         private SceneManager() 
         { 
             store = new Store();

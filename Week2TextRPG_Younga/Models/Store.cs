@@ -5,8 +5,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Week2TextRPG_Younga.Enum;
 
-namespace Week2TextRPG_Younga
+namespace Week2TextRPG_Younga.Classes
 {
     internal class Store
     {

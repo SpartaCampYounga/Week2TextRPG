@@ -1,6 +1,7 @@
 ﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.IO;
+using Week2TextRPG_Younga.Enum;
 using Week2TextRPG_Younga.Scenes;
 
 namespace Week2TextRPG_Younga
