@@ -79,17 +79,21 @@ namespace Week2TextRPG_Younga
             File.WriteAllText(path + $@"\\player_{player.Name}.json", JsonConvert.SerializeObject(player));
             Console.WriteLine($"{player.Name}(이)가 저장되었습니다.");
         }
-        public Player? LoadPlayer(string playerName)
+        public Player LoadPlayer(string playerName)
         {
-            Player? player = null;
+            Player player = null;
             try
             {
+                //JsonConvert.PopulateObject(File.ReadAllText(path + $@"\\player_{playerName}.json"), player);
                 player = JsonConvert.DeserializeObject<Player>(File.ReadAllText(path + $@"\\player_{playerName}.json"));
+                
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 Console.WriteLine($"{playerName}(은)는 존재하지 않습니다.");
+                player = new Player(playerName);
+
             }
             return player;
         }

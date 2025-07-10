@@ -1,33 +1,55 @@
-﻿using Week2TextRPG_Younga.Enum;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
+using Week2TextRPG_Younga.Enum;
 
 namespace Week2TextRPG_Younga.Classes
 {
     internal class Player
     {
         private static int nextId = 1;
+        [JsonProperty]
         private int id;
+        [JsonProperty]
         private int level;
+        [JsonProperty]
         private string name;
+        [JsonProperty]
         private string job;
+        [JsonProperty]
         private int attack;
+        [JsonProperty]
         private int defence;
+        [JsonProperty]
         private int health;
+        [JsonProperty]
         private int gold;
+        [JsonProperty]
         private int exp;
+        [JsonProperty]
         private List<Item> inventory = new List<Item>();
+        [JsonProperty]
         public Dictionary<EquipSlot, Item> equipment = new Dictionary<EquipSlot, Item>();
 
+        [JsonIgnore]
         public int Id => id;
+        [JsonIgnore]
         public int Level => level;
+        [JsonIgnore]
         public string Name => name;
+        [JsonIgnore]
         public string Job => job;
+        [JsonIgnore]
         public int Attack => attack;
+        [JsonIgnore]
         public int Defence => defence;
+        [JsonIgnore]
         public int Health => health;
+        [JsonIgnore]
         public int Gold => gold;
+        [JsonIgnore]
         public int Exp => exp;
+        [JsonIgnore]
         public List<Item> Inventory => inventory;
-
         public Player(string name)
         {
             id = nextId++;

@@ -19,7 +19,6 @@ namespace Week2TextRPG_Younga
             if (player == null) //파일 못찾아서 비어있으면 새로 생성
             {
                 player = new Player(input);
-                player.Inventory.Add(SceneManager.Instance._store.ItemsForSale[1]);
 
                 Console.WriteLine($"{input}이 생성되었습니다. ");
             }
