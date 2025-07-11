@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 using Week2TextRPG_Younga.Enum;
 
 namespace Week2TextRPG_Younga.Classes
@@ -28,8 +27,6 @@ namespace Week2TextRPG_Younga.Classes
         [JsonProperty]
         private List<Item> inventory = new List<Item>();
         [JsonProperty]
-        //[JsonConverter(typeof(JsonStringEnumMemberConverter))]
-        //[JsonProperty(ItemConverterType = typeof(StringEnumConverter))]
         public Dictionary<EquipSlot, Item> equipment = new Dictionary<EquipSlot, Item>();
 
         [JsonIgnore]

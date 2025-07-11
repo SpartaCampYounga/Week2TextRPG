@@ -16,7 +16,6 @@ namespace Week2TextRPG_Younga.Classes
             { Ability.Attack, 0 },
             { Ability.Defence, 0 }
         };  //공격력+5: Attack(enum) 5(int) 
-        //[JsonConverter(typeof(StringEnumConverter))]
         private EquipSlot equipSlot;
 
         public int Id => id;

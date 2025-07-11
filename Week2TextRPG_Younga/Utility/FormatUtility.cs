@@ -16,7 +16,6 @@ namespace Week2TextRPG_Younga.Utility
         }
         public static string AlignWithPadding(string str, int width)
         {
-            //int pad = width - Encoding.Default.GetBytes(str).Length; //바이트로 구할 경우 몬가.. 이상하게 됨ㅠㅠ
             int padding = width - GetStringWidth(str);
             padding = Math.Max(0, padding);
 
