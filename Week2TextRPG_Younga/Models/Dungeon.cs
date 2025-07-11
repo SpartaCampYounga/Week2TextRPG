@@ -61,13 +61,13 @@ namespace Week2TextRPG_Younga.Models
                 damage += random.Next(20, 36);    //기본 감소량 20 ~ 35
                 if(player.Defence > requiredDefense)
                 {
-                    damage += random.Next(0, player.Defence - requiredDefense);
+                    damage -= random.Next(0, player.Defence - requiredDefense);
                 }
                 else
                 {
                     damage += random.Next(player.Defence - requiredDefense, 0);
                 }
-
+                if (damage < 0) damage = 0;
                 if (player.Health <= damage)  //플레이어 체력 0보다 낮으면 보상 안줄거라서 false 출력.
                 {
                     player.Damaged(player.Health);
