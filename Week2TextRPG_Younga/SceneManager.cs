@@ -74,7 +74,7 @@ namespace Week2TextRPG_Younga
         }
 
         //json파일 위치.
-        static string path = "D:\\CampWorkspace\\Week2TextRPG_Younga\\Week2TextRPG_Younga\\Jsons";
+        static string path = AppDomain.CurrentDomain.BaseDirectory + "\\Jsons";
 
         public void SavePlayer(Player player)
         {

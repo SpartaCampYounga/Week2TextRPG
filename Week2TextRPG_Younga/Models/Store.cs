@@ -51,7 +51,7 @@ namespace Week2TextRPG_Younga.Classes
 
 
         //Item json파일.
-        static string path = "D:\\CampWorkspace\\Week2TextRPG_Younga\\Week2TextRPG_Younga\\Jsons";
+        static string path = AppDomain.CurrentDomain.BaseDirectory + "\\Jsons";
         void CreateAllItemJsonFile()
         {
             Item[] allItems =
