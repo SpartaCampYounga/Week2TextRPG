@@ -1,8 +1,10 @@
 ﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Converters;
 using Week2TextRPG_Younga.Classes;
 using Week2TextRPG_Younga.Enum;
 using Week2TextRPG_Younga.Models;
 using Week2TextRPG_Younga.Scenes;
+using Week2TextRPG_Younga.Utility;
 
 namespace Week2TextRPG_Younga
 {
@@ -73,19 +75,23 @@ namespace Week2TextRPG_Younga
 
         //json파일 위치.
         static string path = "D:\\CampWorkspace\\Week2TextRPG_Younga\\Week2TextRPG_Younga\\Jsons";
+
         public void SavePlayer(Player player)
         {
+            JsonSerializerSettings setting = JsonUtility.GetJsonSetting();
             // 파일 생성 후 쓰기
-            File.WriteAllText(path + $@"\\player_{player.Name}.json", JsonConvert.SerializeObject(player));
+            File.WriteAllText(path + $@"\\player_{player.Name}.json", JsonConvert.SerializeObject(player,setting));
             Console.WriteLine($"{player.Name}(이)가 저장되었습니다.");
         }
         public Player LoadPlayer(string playerName)
         {
+            JsonSerializerSettings setting = JsonUtility.GetJsonSetting();
+
             Player player = null;
             try
             {
                 //JsonConvert.PopulateObject(File.ReadAllText(path + $@"\\player_{playerName}.json"), player);
-                player = JsonConvert.DeserializeObject<Player>(File.ReadAllText(path + $@"\\player_{playerName}.json"));
+                player = JsonConvert.DeserializeObject<Player>(File.ReadAllText(path + $@"\\player_{playerName}.json"), setting);
                 
             }
             catch (Exception ex)

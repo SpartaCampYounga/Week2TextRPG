@@ -114,7 +114,6 @@ namespace Week2TextRPG_Younga.Classes
                 display += isNumbered ? $"{i + 1} " : ""; //numbering 요청 받았다면 숫자 매김
                 
                 display += equipment.Values.Any(x => x.Id == inventory[i].Id) ? "[E]" : ""; //장착 중이라면 [E]출력
-                //display += equipment.ContainsValue(inventory[i]) ? "[E]" : ""; //장착 중이라면 [E]출력
                 display += inventory[i].ToString();
                 Console.WriteLine(display);
             }
