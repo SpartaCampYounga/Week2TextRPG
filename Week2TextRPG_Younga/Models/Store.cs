@@ -56,20 +56,20 @@ namespace Week2TextRPG_Younga.Classes
         {
             Item[] allItems =
             {
-                new Item("수련자갑옷", 1000, "수련에 도움을 주는 갑옷입니다.", new Dictionary<Ability, int> { { Ability.Defence, 5 } }, EquipSlot.Armor),
-                new Item("무쇠갑옷", 2000, "무쇠로 만들어져 튼튼한 갑옷입니다.", new Dictionary<Ability, int> { { Ability.Defence, 9 } }, EquipSlot.Armor),
-                new Item("스파르타의 갑옷", 3500, "스파르타의 전사들이 사용했다는 전설의 갑옷입니다.", new Dictionary<Ability, int> { { Ability.Defence, 15 } }, EquipSlot.Armor),
-                new Item("낡은 검", 600, "쉽게 볼 수 있는 낡은 검입니다.", new Dictionary<Ability, int> { { Ability.Attack, 3 } }, EquipSlot.Weapon),
-                new Item("청동 도끼", 1500, "어디선가 사용됐던 것 같은 도끼입니다.", new Dictionary<Ability, int> { { Ability.Attack, 5 } }, EquipSlot.Weapon),
-                new Item("스파르타의 창", 2500, "스파르타의 전사들이 사용했다는 전설의 창입니다.", new Dictionary<Ability, int> { { Ability.Attack, 7 } }, EquipSlot.Weapon),
+                new Item(1, "수련자갑옷", 1000, "수련에 도움을 주는 갑옷입니다.", new Dictionary<Ability, int> { { Ability.Defence, 5 } }, EquipSlot.Armor),
+                new Item(2, "무쇠갑옷", 2000, "무쇠로 만들어져 튼튼한 갑옷입니다.", new Dictionary<Ability, int> { { Ability.Defence, 9 } }, EquipSlot.Armor),
+                new Item(3, "스파르타의 갑옷", 3500, "스파르타의 전사들이 사용했다는 전설의 갑옷입니다.", new Dictionary<Ability, int> { { Ability.Defence, 15 } }, EquipSlot.Armor),
+                new Item(4, "낡은 검", 600, "쉽게 볼 수 있는 낡은 검입니다.", new Dictionary<Ability, int> { { Ability.Attack, 3 } }, EquipSlot.Weapon),
+                new Item(5, "청동 도끼", 1500, "어디선가 사용됐던 것 같은 도끼입니다.", new Dictionary<Ability, int> { { Ability.Attack, 5 } }, EquipSlot.Weapon),
+                new Item(6, "스파르타의 창", 2500, "스파르타의 전사들이 사용했다는 전설의 창입니다.", new Dictionary<Ability, int> { { Ability.Attack, 7 } }, EquipSlot.Weapon),
                 //New Items!
-                new Item("수련자투구", 800, "수련자를 위한 머리에 쓰는 투구입니다.", new Dictionary<Ability, int> { { Ability.Defence, 3 } }, EquipSlot.Helmet),
-                new Item("무쇠투구", 1700, "무겁지만 튼튼합니다.", new Dictionary<Ability, int> { { Ability.Defence, 5 } }, EquipSlot.Helmet),
-                new Item("스파르타의 투구", 2500, "스파르타의 전사들을 상징합니다.", new Dictionary<Ability, int> { { Ability.Defence, 9 } }, EquipSlot.Helmet),
-                new Item("낡은 신발", 400, "불편하지만 발을 보호합니다.", new Dictionary<Ability, int> { { Ability.Defence, 1 } }, EquipSlot.Boots),
-                new Item("가죽 신발", 1000, "튼튼하고 편안합니다.", new Dictionary<Ability, int> { { Ability.Defence, 3 } }, EquipSlot.Boots),
-                new Item("반지", 1200, "어떤 염원이 담겼습니다. 공격력과 방어력이 상승합니다.", new Dictionary<Ability, int> { { Ability.Attack, 1 }, { Ability.Defence, 1 } }, EquipSlot.Accessory),
-                new Item("스파르타의 방패", 4000, "스파르타 전사들이 사용했다는 전설의 방패입니다.", new Dictionary<Ability, int> { { Ability.Defence, 20 } }, EquipSlot.Shield)
+                new Item(7, "수련자투구", 800, "수련자를 위한 머리에 쓰는 투구입니다.", new Dictionary<Ability, int> { { Ability.Defence, 3 } }, EquipSlot.Helmet),
+                new Item(8, "무쇠투구", 1700, "무겁지만 튼튼합니다.", new Dictionary<Ability, int> { { Ability.Defence, 5 } }, EquipSlot.Helmet),
+                new Item(9, "스파르타의 투구", 2500, "스파르타의 전사들을 상징합니다.", new Dictionary<Ability, int> { { Ability.Defence, 9 } }, EquipSlot.Helmet),
+                new Item(10, "낡은 신발", 400, "불편하지만 발을 보호합니다.", new Dictionary<Ability, int> { { Ability.Defence, 1 } }, EquipSlot.Boots),
+                new Item(11, "가죽 신발", 1000, "튼튼하고 편안합니다.", new Dictionary<Ability, int> { { Ability.Defence, 3 } }, EquipSlot.Boots),
+                new Item(12, "반지", 1200, "어떤 염원이 담겼습니다. 공격력과 방어력이 상승합니다.", new Dictionary<Ability, int> { { Ability.Attack, 1 }, { Ability.Defence, 1 } }, EquipSlot.Accessory),
+                new Item(13, "스파르타의 방패", 4000, "스파르타 전사들이 사용했다는 전설의 방패입니다.", new Dictionary<Ability, int> { { Ability.Defence, 20 } }, EquipSlot.Shield)
             };
             // 파일 생성 후 쓰기
             File.WriteAllText(path + @"\\StoreItems.json", JsonConvert.SerializeObject(allItems));

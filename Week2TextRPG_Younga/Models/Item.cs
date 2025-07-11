@@ -1,11 +1,12 @@
 ﻿using Week2TextRPG_Younga.Enum;
 using Week2TextRPG_Younga.Utility;
+using Newtonsoft.Json.Converters;
+using System.Text.Json.Serialization;
 
 namespace Week2TextRPG_Younga.Classes
 {
     internal class Item
     {
-        private static int nextId = 1;
         private int id;
         private string name;
         private int price;
@@ -15,6 +16,7 @@ namespace Week2TextRPG_Younga.Classes
             { Ability.Attack, 0 },
             { Ability.Defence, 0 }
         };  //공격력+5: Attack(enum) 5(int) 
+        //[JsonConverter(typeof(StringEnumConverter))]
         private EquipSlot equipSlot;
 
         public int Id => id;
@@ -24,9 +26,9 @@ namespace Week2TextRPG_Younga.Classes
         public Dictionary<Ability, int> Enhancement => enhancement;
         public EquipSlot EquipSlot => equipSlot;
 
-        public Item(string name, int price, string description, Dictionary<Ability, int> enhancement, EquipSlot equipSlot)
+        public Item(int id, string name, int price, string description, Dictionary<Ability, int> enhancement, EquipSlot equipSlot)
         {
-            id = nextId++;
+            this.id = id;
             this.name = name;
             this.price = price;
             this.description = description;
