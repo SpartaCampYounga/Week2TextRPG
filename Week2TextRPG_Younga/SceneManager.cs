@@ -73,14 +73,11 @@ namespace Week2TextRPG_Younga
             _dungeons.Add(dungeon);
         }
 
-        //json파일 위치.
-        static string path = AppDomain.CurrentDomain.BaseDirectory + "\\Jsons";
-
         public void SavePlayer(Player player)
         {
             JsonSerializerSettings setting = JsonUtility.GetJsonSetting();
             // 파일 생성 후 쓰기
-            File.WriteAllText(path + $@"\\player_{player.Name}.json", JsonConvert.SerializeObject(player,setting));
+            File.WriteAllText(JsonUtility.path + $@"\\player_{player.Name}.json", JsonConvert.SerializeObject(player,setting));
             Console.WriteLine($"{player.Name}(이)가 저장되었습니다.");
         }
         public Player LoadPlayer(string playerName)
@@ -91,7 +88,7 @@ namespace Week2TextRPG_Younga
             try
             {
                 //JsonConvert.PopulateObject(File.ReadAllText(path + $@"\\player_{playerName}.json"), player);
-                player = JsonConvert.DeserializeObject<Player>(File.ReadAllText(path + $@"\\player_{playerName}.json"), setting);
+                player = JsonConvert.DeserializeObject<Player>(File.ReadAllText(JsonUtility.path + $@"\\player_{playerName}.json"), setting);
                 
             }
             catch (Exception ex)

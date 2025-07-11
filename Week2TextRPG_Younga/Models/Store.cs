@@ -51,7 +51,7 @@ namespace Week2TextRPG_Younga.Classes
 
 
         //Item json파일.
-        static string path = AppDomain.CurrentDomain.BaseDirectory + "\\Jsons";
+        //static string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\") + "\\Jsons";
         void CreateAllItemJsonFile()
         {
             Item[] allItems =
@@ -72,12 +72,12 @@ namespace Week2TextRPG_Younga.Classes
                 new Item(13, "스파르타의 방패", 4000, "스파르타 전사들이 사용했다는 전설의 방패입니다.", new Dictionary<Ability, int> { { Ability.Defence, 20 } }, EquipSlot.Shield)
             };
             // 파일 생성 후 쓰기
-            File.WriteAllText(path + @"\\StoreItems.json", JsonConvert.SerializeObject(allItems));
+            File.WriteAllText(JsonUtility.path + @"\\StoreItems.json", JsonConvert.SerializeObject(allItems));
             Console.WriteLine($"{allItems}가 저장되었습니다.");
         }
         public static List<Item> GetStoreItemListFromJsonFile()
         {
-            return JsonConvert.DeserializeObject<List<Item>>(File.ReadAllText(path + @"\\StoreItems.json"));
+            return JsonConvert.DeserializeObject<List<Item>>(File.ReadAllText(JsonUtility.path + @"\\StoreItems.json"));
         }
     }
 }

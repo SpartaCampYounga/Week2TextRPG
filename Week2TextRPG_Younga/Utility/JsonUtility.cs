@@ -10,6 +10,8 @@ namespace Week2TextRPG_Younga.Utility
 {
     public static class JsonUtility
     {
+        //json파일 위치.
+        public static string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\") + "\\Jsons";
         public static JsonSerializerSettings GetJsonSetting()
         {
             JsonSerializerSettings setting = new JsonSerializerSettings();
