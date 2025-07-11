@@ -1,0 +1,1 @@
+{"id":1,"level":1,"name":"newpath","job":"전사","attack":10,"defence":10,"health":100,"gold":500,"exp":0,"inventory":[{"Id":1,"Name":"수련자갑옷","Price":1000,"Description":"수련에 도움을 주는 갑옷입니다.","Enhancement":{"Defence":5},"EquipSlot":"Armor"}],"equipment":{"Armor":{"Id":1,"Name":"수련자갑옷","Price":1000,"Description":"수련에 도움을 주는 갑옷입니다.","Enhancement":{"Defence":5},"EquipSlot":"Armor"}}}

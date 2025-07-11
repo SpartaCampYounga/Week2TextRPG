@@ -10,7 +10,7 @@ namespace Week2TextRPG_Younga.Classes
 
         public Store()
         {
-            CreateAllItemJsonFile();
+            //CreateAllItemJsonFile();
             ItemsForSale = GetStoreItemListFromJsonFile();
         }
         public void DisplayItems(bool isNumbered, Player player)
